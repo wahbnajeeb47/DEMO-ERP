@@ -1,0 +1,215 @@
+/* Core Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+/* Sidebar Navigation Layout */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #0f172a;
+    color: #fff;
+    padding: 24px;
+    position: fixed;
+}
+
+.sidebar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #38bdf8;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 14px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover, .nav-links .active {
+    background-color: #1e293b;
+    color: #38bdf8;
+    font-weight: 500;
+}
+
+/* Main Screen Layout */
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 40px;
+}
+
+/* Header Area (Balanced Layout) */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 35px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 20px;
+}
+
+.client-details h2 {
+    font-size: 24px;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.client-details p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.date-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.date-block label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.date-block input {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* Main Form Area */
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.form-container h3 {
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+/* Responsive Grid for Inputs */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group select {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #38bdf8;
+}
+
+/* Invoice Calculations Section */
+.invoice-summary {
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-bottom: 30px;
+    border: 1px solid #e2e8f0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #475569;
+}
+
+.summary-row.text-danger {
+    color: #ef4444;
+}
+
+.summary-row.total-highlight {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px dashed #cbd5e1;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+/* Action Buttons styling */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary {
+    background-color: #0284c7;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0369a1;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}

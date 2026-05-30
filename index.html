@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP - Distributor Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">🚀 CoreERP</div>
+        <ul class="nav-links">
+            <li id="tab-billing" class="nav-item active" onclick="switchTab('billing')">Quick Billing</li>
+            <li id="tab-inventory" class="nav-item" onclick="switchTab('inventory')">Stock Inventory</li>
+            <li id="tab-dashboard" class="nav-item" onclick="switchTab('dashboard')">Dashboard Summary</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="invoice-header">
+            <div class="client-details">
+                <h2>Naseer Cold (Distributors)</h2>
+                <p>Ghazi Salahuddin Road, Karachi</p>
+            </div>
+            <div class="date-block">
+                <label>System Date:</label>
+                <input type="date" id="billingDate" value="2026-05-30">
+            </div>
+        </div>
+
+        <div id="section-billing" class="content-section">
+            <div class="form-container">
+                <h3>Generate New Invoice</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Customer / Retailer Name</label>
+                        <input type="text" id="customerName" placeholder="Enter shop or customer name">
+                    </div>
+                    <div class="input-group">
+                        <label>Select Product Item</label>
+                        <select id="productItem">
+                            <option>Premium Beverage 1.5L</option>
+                            <option>Diet Soda 350ml</option>
+                            <option>Mineral Water 500ml</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+    <label>Quantity (Crates/Units)</label>
+    <input type="number" id="quantity" placeholder="0" min="1" oninput="calculateInvoice()">
+</div>
+
+<div class="input-group">
+    <label>Unit Price (PKR)</label>
+    <input type="number" id="unitPrice" placeholder="0.00" oninput="calculateInvoice()">
+</div>
+                </div>
+
+                <div class="invoice-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <strong id="subtotalLabel">PKR 0.00</strong>
+                    </div>
+                    <div class="summary-row text-danger">
+                        <span>Tax / GST (WHT - 2%):</span>
+                        <strong id="taxLabel">PKR 0.00</strong>
+                    </div>
+                    <div class="summary-row total-highlight">
+                        <span>Grand Total:</span>
+                        <strong id="totalLabel">PKR 0.00</strong>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+                    <button class="btn btn-primary" onclick="saveInvoice()">Save & Print Invoice</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-inventory" class="content-section" style="display: none;">
+            <div class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3>Saved Invoice Database Records</h3>
+                    <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="clearDatabase()">Clear Records</button>
+                </div>
+                <div class="table-container" style="box-shadow: none; padding: 0;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #f8fafc; text-align: left;">
+                                <th style="padding: 12px;">Date</th>
+                                <th style="padding: 12px;">Customer</th>
+                                <th style="padding: 12px;">Product</th>
+                                <th style="padding: 12px;">Qty</th>
+                                <th style="padding: 12px;">Rate</th>
+                                <th style="padding: 12px;">Total Bill</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-dashboard" class="content-section" style="display: none;">
+            <div class="form-container">
+                <h3>Business Insights Dashboard</h3>
+                <p style="color: #64748b; margin-bottom: 20px;">Real-time analysis of distribution logs.</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div style="background-color: #f0fdf4; padding: 20px; border-radius: 8px; border-left: 4px solid #16a34a;">
+                        <span style="font-size: 13px; color: #16a34a; font-weight: 600;">TOTAL ACCUMULATED SALES</span>
+                        <h2 id="totalSalesInsight" style="margin-top: 5px; color: #14532d;">PKR 0.00</h2>
+                    </div>
+                    <div style="background-color: #eff6ff; padding: 20px; border-radius: 8px; border-left: 4px solid #2563eb;">
+                        <span style="font-size: 13px; color: #2563eb; font-weight: 600;">TOTAL INVOICES GENERATED</span>
+                        <h2 id="totalCountInsight" style="margin-top: 5px; color: #1e3a8a;">0 Records</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
