@@ -1,25 +1,33 @@
-/* Core Reset */
+/* ==========================================================================
+   1. CORE RESET & BASE THEME
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
 body {
     display: flex;
     background-color: #f8fafc;
     color: #1e293b;
+    min-height: 100vh;
 }
 
-/* Sidebar Navigation Layout */
+/* ==========================================================================
+   2. DESKTOP SIDEBAR NAVIGATION
+   ========================================================================== */
 .sidebar {
     width: 260px;
-    height: 100vh;
     background-color: #0f172a;
     color: #fff;
     padding: 24px;
     position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
 }
 
 .sidebar .logo {
@@ -40,30 +48,34 @@ body {
     cursor: pointer;
     border-radius: 8px;
     color: #94a3b8;
-    transition: all 0.3s ease;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .nav-links li:hover, .nav-links .active {
     background-color: #1e293b;
     color: #38bdf8;
-    font-weight: 500;
 }
 
-/* Main Screen Layout */
+/* ==========================================================================
+   3. MAIN CONTENT LAYER
+   ========================================================================== */
 .main-content {
     margin-left: 260px;
     width: calc(100% - 260px);
     padding: 40px;
+    transition: all 0.3s ease;
 }
 
-/* Header Area (Balanced Layout) */
+/* Header Area Layout */
 .invoice-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 20px;
+    gap: 20px;
 }
 
 .client-details h2 {
@@ -84,11 +96,12 @@ body {
 }
 
 .date-block label {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     color: #64748b;
     margin-bottom: 6px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .date-block input {
@@ -97,28 +110,30 @@ body {
     border-radius: 6px;
     color: #1e293b;
     font-weight: 500;
+    background-color: #fff;
 }
 
-/* Main Form Area */
+/* Card Containers */
 .form-container {
     background-color: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
 }
 
 .form-container h3 {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-size: 18px;
     color: #0f172a;
 }
 
-/* Responsive Grid for Inputs */
+/* Inputs Layout Grid */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .input-group {
@@ -140,14 +155,15 @@ body {
     font-size: 15px;
     color: #0f172a;
     outline: none;
-    transition: border-color 0.2s;
+    background-color: #fff;
+    width: 100%;
 }
 
 .input-group input:focus, .input-group select:focus {
     border-color: #38bdf8;
 }
 
-/* Invoice Calculations Section */
+/* Invoice Bill Panel Block */
 .invoice-summary {
     background-color: #f8fafc;
     padding: 20px;
@@ -155,7 +171,7 @@ body {
     width: 100%;
     max-width: 400px;
     margin-left: auto;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     border: 1px solid #e2e8f0;
 }
 
@@ -179,7 +195,7 @@ body {
     color: #0f172a;
 }
 
-/* Action Buttons styling */
+/* Action Controls Buttons */
 .form-actions {
     display: flex;
     justify-content: flex-end;
@@ -212,4 +228,161 @@ body {
 
 .btn-secondary:hover {
     background-color: #cbd5e1;
+}
+
+/* Data Tables Structure */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+table th {
+    background-color: #f8fafc;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+table td {
+    padding: 14px;
+    font-size: 14px;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Insight Cards Dashboard Blocks */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card-insight {
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.card-green {
+    background-color: #f0fdf4;
+    border-left: 4px solid #16a34a;
+}
+
+.card-blue {
+    background-color: #eff6ff;
+    border-left: 4px solid #2563eb;
+}
+
+.card-insight span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card-insight h2 {
+    margin-top: 8px;
+    font-size: 24px;
+}
+
+/* ==========================================================================
+   4. ULTRA FLUID RESPONSIVE ENGINE (MOBILE & TABLETS BREAKPOINT)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    /* Top Horizontal Bar Navigation Panel */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .sidebar .logo {
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .nav-links li {
+        flex: 1;
+        text-align: center;
+        padding: 10px 6px;
+        margin-bottom: 0;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* Shift Main Content to full screen stretch */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 16px;
+    }
+
+    .invoice-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .date-block {
+        align-items: flex-start;
+    }
+
+    .date-block input {
+        width: 100%;
+    }
+
+    /* Grid systems drop to 1 single clean stack layout */
+    .form-grid, .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .invoice-summary {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+    }
+    
+    .card-insight h2 {
+        font-size: 22px;
+    }
 }
